@@ -1,8 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http'
 import { Observer } from 'rxjs'
 
-export let GenericSubscribe = (
-	observer: Observer<any>,
+export let GenericSubscribe = <T = any>(
+	observer: Observer<T>,
 	success?: Function,
 	failure?: Function
 ) => {
@@ -10,13 +10,11 @@ export let GenericSubscribe = (
 		next: (data: any) => {
 			console.log(data)
 			observer.next(data?.data)
-			observer.complete()
 			if (success) success(data?.data)
 		},
 		error: (err: HttpErrorResponse) => {
 			console.error(err.error)
 			observer.error(err.error)
-			observer.complete()
 			if (failure) failure(err.error.error)
 		},
 	}
