@@ -1,1 +1,143 @@
-<p>signup works!</p>
+<section class="bg-white">
+	<div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+		<section
+			class="relative hidden lg:flex h-32 lg:col-span-5 lg:h-full xl:col-span-6">
+			<div class="flex flex-wrap justify-center m-auto items-center">
+				<object
+					class="h-56 w-full"
+					data="assets/icons/faucet.svg"
+					type="image/svg+xml"></object>
+				<span class="flex flex-col w-1/3 gap-6">
+					<i class="fa-solid fa-droplet fa-3x fa-bounce ml-auto"></i>
+					<i class="fa-solid fa-droplet fa-3x fa-bounce ml-auto"></i>
+					<i class="fa-solid fa-droplet fa-3x fa-bounce ml-auto"></i>
+				</span>
+				<object
+					class="h-56 w-full"
+					data="assets/icons/puddle.svg"
+					type="image/svg+xml"></object>
+			</div>
+		</section>
+
+		<main
+			class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6">
+			<div class="max-w-xl lg:max-w-3xl">
+				<div class="relative block -mt-16">
+					<a
+						class="inline-flex items-center justify-center w-16 h-16 text-gray-600 bg-white rounded-full sm:w-20 sm:h-20"
+						href="/">
+						<span class="sr-only">Home</span>
+					</a>
+
+					<h1
+						class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+						Welcome to Trinity Plumbing
+					</h1>
+
+					<p class="mt-4 leading-relaxed text-gray-500"></p>
+				</div>
+
+				<form action="#" class="grid grid-cols-6 gap-6 mt-8">
+					<div class="col-span-6">
+						<label for="" class="block text-sm font-medium"> Name </label>
+
+						<input
+							type=""
+							id=""
+							name=""
+							class="w-full mt-1 bg-white border-black border-b shadow-sm" />
+					</div>
+
+					<div class="col-span-6">
+						<label for="Email" class="block text-sm font-medium">
+							Email
+						</label>
+
+						<input
+							type="email"
+							id=""
+							name=""
+							class="w-full mt-1 text-lg bg-white border-black border-b shadow-sm" />
+					</div>
+					<div class="col-span-6">
+						<label for="" class="block text-sm font-medium">
+							Address
+						</label>
+
+						<input
+							type=""
+							id=""
+							name=""
+							class="w-full mt-1 text-lg bg-white border-black border-b shadow-sm" />
+					</div>
+
+					<div class="col-span-6 sm:col-span-3">
+						<label for="Password" class="block text-sm font-medium">
+							Password
+						</label>
+
+						<input
+							type="password"
+							id="Password"
+							name="password"
+							class="w-full mt-1 text-lg bg-white border-black border-b shadow-sm" />
+					</div>
+
+					<div class="col-span-6 sm:col-span-3">
+						<label for="" class="block text-sm font-medium">
+							Password Confirmation
+						</label>
+
+						<input
+							type="password"
+							id=""
+							name=""
+							class="w-full mt-1 text-lg bg-white border-black border-b shadow-sm" />
+					</div>
+
+					<div class="col-span-6">
+						<label for="" class="flex gap-4">
+							<input
+								type="checkbox"
+								id=""
+								name=""
+								class="w-5 h-5 bg-white border-black shadow-sm" />
+
+							<span class="text-sm">
+								I want to receive emails about events, product updates
+								and company announcements.
+							</span>
+						</label>
+					</div>
+
+					<div class="col-span-6">
+						<p class="text-sm text-gray-500">
+							By creating an account, you agree to our
+							<a href="#" class="text-gray-700 underline">
+								terms and conditions
+							</a>
+							and
+							<a href="#" class="text-gray-700 underline"
+								>privacy policy</a
+							>.
+						</p>
+					</div>
+
+					<div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+						<button
+							class="inline-block px-12 py-3 text-sm font-medium text-white transition bg-gray-800 border border-gray-600 shrink-0 hover:bg-transparent hover:text-gray-600 active:text-gray-500">
+							Create an account
+						</button>
+
+						<p class="mt-4 text-sm text-gray-500 sm:mt-0">
+							Already have an account?
+							<a routerLink="login" class="text-gray-700 underline"
+								>Log in</a
+							>.
+						</p>
+					</div>
+				</form>
+			</div>
+		</main>
+	</div>
+</section>
