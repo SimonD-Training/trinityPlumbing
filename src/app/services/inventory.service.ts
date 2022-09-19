@@ -12,6 +12,18 @@ import { IProduct } from '../interfaces/product.interface'
 export class InventoryService {
 	constructor(private http: HttpClient) {}
 
+	public get categories(): Observable<{ name: string }[]> {
+		return new Observable((observer) => {
+			this.http
+				.get<JSONResponse<{ name: string }[]>>(
+					environment.apiUrl + '/categories',
+					{ withCredentials: true }
+				)
+				.pipe(take(1))
+				.subscribe(GenericSubscribe(observer))
+		})
+	}
+
 	/**
 	 * Http request to add an item
 	 * @param product New item information

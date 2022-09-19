@@ -9,8 +9,9 @@ import { InventoryService } from 'src/app/services/inventory.service'
 })
 export class InventoryCrudComponent implements OnInit {
 	Items: IProduct[] = []
-	newItem: any
+	newItem: IProduct = <IProduct>{}
 	listArray: { class: string; toggle: boolean }[] = []
+	categories$ = this.iService.categories
 	constructor(private iService: InventoryService) {}
 
 	ngOnInit(): void {
@@ -26,7 +27,7 @@ export class InventoryCrudComponent implements OnInit {
 		this.iService.add(payload).subscribe({
 			next: (data) => {
 				this.Items.push(data)
-				this.newItem = {}
+				this.newItem = <IProduct>{}
 			},
 			error: (err) => {
 				alert(err.message)
