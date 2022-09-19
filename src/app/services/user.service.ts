@@ -53,7 +53,7 @@ export class UserService {
 	}
 
 	/**
-	 * Http request to delete the current account
+	 * Http request to logout
 	 * @returns Observable
 	 */
 	deleteUser() {

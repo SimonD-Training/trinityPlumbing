@@ -57,7 +57,7 @@ export class CartService {
 
 	addCartItem(itemId: string): void {
 		// Get all the products
-		this.iService.getItem(itemId).subscribe((resp) => {
+		this.iService.get(itemId).subscribe((resp) => {
 			let currentCart: any[] = []
 
 			// If `cart` is found in localStorage we store it in `currentCart`

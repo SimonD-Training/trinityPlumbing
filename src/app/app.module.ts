@@ -13,6 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { FormsModule } from '@angular/forms'
+import { AdminModule } from './pages/admin/admin.module'
+import { HttpClientModule } from '@angular/common/http'
+import { AdminheadComponent } from './components/adminhead/adminhead.component'
 
 @NgModule({
 	declarations: [
@@ -23,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button'
 		SignupComponent,
 		HeaderComponent,
 		FooterComponent,
+		AdminheadComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -31,6 +36,9 @@ import { MatButtonModule } from '@angular/material/button'
 		MatMenuModule,
 		MatIconModule,
 		MatButtonModule,
+		AdminModule,
+		FormsModule,
+		HttpClientModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

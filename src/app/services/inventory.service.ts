@@ -12,12 +12,24 @@ import { IProduct } from '../interfaces/product.interface'
 export class InventoryService {
 	constructor(private http: HttpClient) {}
 
+	public get categories(): Observable<{ name: string }[]> {
+		return new Observable((observer) => {
+			this.http
+				.get<JSONResponse<{ name: string }[]>>(
+					environment.apiUrl + '/categories',
+					{ withCredentials: true }
+				)
+				.pipe(take(1))
+				.subscribe(GenericSubscribe(observer))
+		})
+	}
+
 	/**
 	 * Http request to add an item
 	 * @param product New item information
 	 * @returns Observable
 	 */
-	addItem(product: IProduct) {
+	add(product: IProduct) {
 		let obs = new Observable<IProduct>((observer) => {
 			this.http
 				.post<JSONResponse<IProduct>>(
@@ -38,15 +50,12 @@ export class InventoryService {
 	 * Http request to get items
 	 * @returns Observable
 	 */
-	getItem(id: string) {
+	get(id: string) {
 		let obs = new Observable<IProduct>((observer) => {
 			this.http
-				.get<JSONResponse<IProduct>>(
-					environment.apiUrl + `/items/${id}`,
-					{
-						withCredentials: true,
-					}
-				)
+				.get<JSONResponse<IProduct>>(environment.apiUrl + `/items/${id}`, {
+					withCredentials: true,
+				})
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})
@@ -58,7 +67,7 @@ export class InventoryService {
 	 * Http request to get payment methods
 	 * @returns Observable
 	 */
-	getItems() {
+	getAll() {
 		let obs = new Observable<IProduct[]>((observer) => {
 			this.http
 				.get<JSONResponse<IProduct[]>>(environment.apiUrl + '/items', {
@@ -75,11 +84,12 @@ export class InventoryService {
 	 * Http request to update an item
 	 * @returns Observable
 	 */
-	updateItem(id: string) {
+	update(id: string, payload: Partial<IProduct>) {
 		let obs = new Observable<IProduct>((observer) => {
 			this.http
 				.patch<JSONResponse<IProduct>>(
 					environment.apiUrl + `/items/${id}`,
+					payload,
 					{
 						withCredentials: true,
 					}
@@ -95,15 +105,12 @@ export class InventoryService {
 	 * Http request to delete items
 	 * @returns Observable
 	 */
-	deleteItem(id: string) {
+	delete(id: string) {
 		let obs = new Observable((observer) => {
 			this.http
-				.delete<JSONResponse<any>>(
-					environment.apiUrl + `/items/${id}`,
-					{
-						withCredentials: true,
-					}
-				)
+				.delete<JSONResponse<any>>(environment.apiUrl + `/items/${id}`, {
+					withCredentials: true,
+				})
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})
