@@ -5,9 +5,14 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
 import { ServicesComponent } from './pages/services/services.component'
 import { LoginComponent } from './pages/login/login.component'
-import { SignupComponent } from './pages/signup/signup.component';
-import { HeaderComponent } from './components/header/header.component';
+import { SignupComponent } from './pages/signup/signup.component'
+import { HeaderComponent } from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { MatMenuModule } from '@angular/material/menu'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
 
 @NgModule({
 	declarations: [
@@ -16,10 +21,17 @@ import { FooterComponent } from './components/footer/footer.component'
 		ServicesComponent,
 		LoginComponent,
 		SignupComponent,
-  HeaderComponent,
-  FooterComponent,
+		HeaderComponent,
+		FooterComponent,
 	],
-	imports: [BrowserModule, AppRoutingModule],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MatMenuModule,
+		MatIconModule,
+		MatButtonModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })
