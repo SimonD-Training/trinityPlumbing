@@ -1,112 +1,106 @@
 <header
 	class="w-full mx-auto text-white z-50 bg-transparent fixed py-2 transition-all">
-	<!-- navbar -->
-	<nav class="flex justify-between w-full">
-		<div class="px-5 xl:px-12 py-6 flex w-full items-center">
-			<a class="text-3xl font-bold font-heading" href="#">
-				<!-- <img class="h-9" src="logo.png" alt="logo"> -->
-				TRINITY
+	<div class="lg:grid grid-cols-6 py-5">
+		<div class="grid grid-cols-3 lg:grid-cols-1">
+			<div class="justify-self-center md:hidden">
+				<button mat-icon-button [matMenuTriggerFor]="beforeMenu">
+					<mat-icon class="text-white menu-icon">menu</mat-icon>
+					<mat-menu #beforeMenu="matMenu" xPosition="after">
+						<button mat-menu-item routerLink="home">HOME</button>
+						<button mat-menu-item routerLink="products">PRODUCTS</button>
+						<button mat-menu-item routerLink="services">SERVICES</button>
+						<button mat-menu-item routerLink="contact">CONTACT</button>
+					</mat-menu>
+				</button>
+			</div>
+			<a routerLink="home" class="flex justify-center items-center">
+				<h1 class="font-bold text-2xl lg:text-3xl">TRINITY</h1>
 			</a>
-			<!-- Nav Links -->
-			<ul
-				class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-				<li><a class="hover:text-gray-200" href="#">Home</a></li>
-				<li>
-					<a class="hover:text-gray-200" routerLink="products">Products</a>
-				</li>
-				<li>
-					<a class="hover:text-gray-200" routerLink="services">Services</a>
-				</li>
-
-				<li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
-			</ul>
-			<!-- Header Icons -->
-			<div class="hidden xl:flex items-center space-x-5">
-				<a class="hover:text-gray-200" href="#">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-					</svg>
+			<div
+				class="flex justify-center items-center gap-2 lg:hidden md:col-span-2 md:mx-auto md:w-3/4 md:justify-end">
+				<span><i class="fa-solid fa-magnifying-glass"></i></span>
+				<a routerLink="login">
+					<span><i class="fa-solid fa-user"></i></span>
 				</a>
-				<a class="flex items-center hover:text-gray-200" href="#">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-					</svg>
-					<span class="flex absolute -mt-5 ml-4">
-						<span
-							class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-white opacity-75"></span>
-						<span
-							class="relative inline-flex rounded-full h-3 w-3 bg-black">
-						</span>
-					</span>
-				</a>
-				<!-- Sign In / Register      -->
-				<a class="flex items-center hover:text-gray-200" href="#">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6 hover:text-gray-200"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-					</svg>
+				<a routerLink="cart">
+					<span><i class="fa-solid fa-shopping-cart"></i></span>
 				</a>
 			</div>
 		</div>
-		<!-- Responsive navbar -->
-		<a class="xl:hidden flex mr-6 items-center" href="#">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 hover:text-gray-200"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor">
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-			</svg>
-			<span class="flex absolute -mt-5 ml-4">
-				<span class="relative inline-flex rounded-full px-2 bg-black border"
-					>1
-				</span>
-			</span>
-		</a>
-		<a class="navbar-burger self-center mr-12 xl:hidden" href="#">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6 hover:text-gray-200"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor">
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M4 6h16M4 12h16M4 18h16" />
-			</svg>
-		</a>
-	</nav>
+		<div class="col-span-5 grid-rows-2">
+			<div class="grid grid-cols-3 py-3">
+				<div class="w-1/2 justify-self-end col-span-2 hidden lg:block">
+					<form>
+						<label class="relative block">
+							<input
+								class="w-full bg-transparent placeholder:font-italitc border border-white py-2 pl-3 pr-10 placeholder:text-white focus:outline-none rounded-sm"
+								placeholder="Search..."
+								type="text" />
+
+							<span
+								class="absolute inset-y-0 right-0 flex items-center pr-3">
+								<span
+									><i class="fa-solid fa-magnifying-glass"></i
+								></span>
+							</span>
+						</label>
+					</form>
+				</div>
+
+				<div
+					class="lg:flex justify-around items-center pr-10 w-3/4 2xl:w-1/2 ml-auto hidden">
+					<a
+						routerLink="login"
+						class="h-full flex items-center justify-center">
+						<span
+							class="border rounded-full w-8 h-8 flex items-center justify-center border-white p-1 cart-icon">
+							<i class="fa-solid fa-user"></i>
+						</span>
+						&nbsp; Login
+					</a>
+					<a
+						routerLink="cart"
+						class="h-full flex items-center justify-center">
+						<span
+							class="border rounded-full w-8 h-8 flex items-center justify-center border-white p-1 cart-icon">
+							<i class="fa-solid fa-cart-shopping"></i>
+						</span>
+						&nbsp; Cart
+					</a>
+				</div>
+			</div>
+			<nav>
+				<ul
+					class="hidden md:flex gap-10 w-11/12 mx-auto lg:w-3/4 items-center justify-around px-3 bg-gray-800 text-white relative h-10 lg:ml-5">
+					<li>
+						<a href="">Home</a>
+					</li>
+					<li class="flex items-center">
+						<a routerLink="products">Products</a>
+						<span>
+							<svg
+								class="ml-1 w-5 h-5"
+								aria-hidden="true"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									fill-rule="evenodd"
+									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+									clip-rule="evenodd"></path>
+							</svg>
+						</span>
+					</li>
+					<li>
+						<a routerLink="services">Services</a>
+					</li>
+					<li>
+						<a href="">Contact</a>
+					</li>
+					<div
+						class="hidden lg:block absolute top-0 -right-5 skew-x-12 w-10 h-full bg-gray-800 skew -z-10"></div>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </header>

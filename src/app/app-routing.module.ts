@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './pages/users/checkout/checkout.component'
 import { SignupComponent } from './pages/signup/signup.component'
 import { LoginComponent } from './pages/login/login.component'
 import { ServicesComponent } from './pages/services/services.component'
@@ -14,6 +15,7 @@ const routes: Routes = [
 	{ path: 'signup', component: SignupComponent },
 	{ path: 'products', component: ProductsComponent },
 	{ path: 'services', component: ServicesComponent },
+	{ path: 'checkout', component: CheckoutComponent },
 	{ path: 'cart', component: CartComponent },
 	{
 		path: 'admins',

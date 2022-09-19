@@ -8,6 +8,11 @@ import { LoginComponent } from './pages/login/login.component'
 import { SignupComponent } from './pages/signup/signup.component'
 import { HeaderComponent } from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { MatMenuModule } from '@angular/material/menu'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
 import { FormsModule } from '@angular/forms'
 import { AdminModule } from './pages/admin/admin.module'
 import { HttpClientModule } from '@angular/common/http'
@@ -25,6 +30,10 @@ import { HttpClientModule } from '@angular/common/http'
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		BrowserAnimationsModule,
+		MatMenuModule,
+		MatIconModule,
+		MatButtonModule,
 		AdminModule,
 		FormsModule,
 		HttpClientModule,
