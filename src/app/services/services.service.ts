@@ -38,7 +38,7 @@ export class ServicesService {
 	 * Http request to get services
 	 * @returns Observable
 	 */
-	getService(id: string) {
+	get(id: string) {
 		let obs = new Observable<IService>((observer) => {
 			this.http
 				.get<JSONResponse<IService>>(
@@ -58,7 +58,7 @@ export class ServicesService {
 	 * Http request to get payment methods
 	 * @returns Observable
 	 */
-	getServices() {
+	getAll() {
 		let obs = new Observable<IService[]>((observer) => {
 			this.http
 				.get<JSONResponse<IService[]>>(environment.apiUrl + '/services', {
@@ -75,7 +75,7 @@ export class ServicesService {
 	 * Http request to update an service
 	 * @returns Observable
 	 */
-	updateService(id: string) {
+	update(id: string, payload: IService) {
 		let obs = new Observable<IService>((observer) => {
 			this.http
 				.patch<JSONResponse<IService>>(
@@ -95,7 +95,7 @@ export class ServicesService {
 	 * Http request to delete services
 	 * @returns Observable
 	 */
-	deleteService(id: string) {
+	delete(id: string) {
 		let obs = new Observable((observer) => {
 			this.http
 				.delete<JSONResponse<any>>(environment.apiUrl + `/services/${id}`, {

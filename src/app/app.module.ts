@@ -5,9 +5,12 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './pages/home/home.component'
 import { ServicesComponent } from './pages/services/services.component'
 import { LoginComponent } from './pages/login/login.component'
-import { SignupComponent } from './pages/signup/signup.component';
-import { HeaderComponent } from './components/header/header.component';
+import { SignupComponent } from './pages/signup/signup.component'
+import { HeaderComponent } from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component'
+import { FormsModule } from '@angular/forms'
+import { AdminModule } from './pages/admin/admin.module'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
 	declarations: [
@@ -16,10 +19,16 @@ import { FooterComponent } from './components/footer/footer.component'
 		ServicesComponent,
 		LoginComponent,
 		SignupComponent,
-  HeaderComponent,
-  FooterComponent,
+		HeaderComponent,
+		FooterComponent,
 	],
-	imports: [BrowserModule, AppRoutingModule],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		AdminModule,
+		FormsModule,
+		HttpClientModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })

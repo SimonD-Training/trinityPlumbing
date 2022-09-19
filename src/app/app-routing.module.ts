@@ -6,6 +6,7 @@ import { CartComponent } from './pages/users/cart/cart.component'
 import { HomeComponent } from './pages/home/home.component'
 import { NgModule } from '@angular/core'
 import { Router, RouterModule, Routes } from '@angular/router'
+import { AuthGuard } from './guards/auth.guard'
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
@@ -14,7 +15,12 @@ const routes: Routes = [
 	{ path: 'products', component: ProductsComponent },
 	{ path: 'services', component: ServicesComponent },
 	{ path: 'cart', component: CartComponent },
-	{ path: '*', redirectTo: 'home', pathMatch: 'full' },
+	{
+		path: 'admins',
+		loadChildren: () =>
+			import('./pages/admin/admin.module').then((m) => m.AdminModule),
+			canActivate: [AuthGuard]
+	},
 	{ path: '**', redirectTo: 'home' },
 ]
 
