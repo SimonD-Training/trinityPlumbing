@@ -3,22 +3,23 @@
 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 	color: black;
 
-	::placeholder {
+	::placeholder,
+	.menu-icon {
 		color: black;
 	}
 
-	input,
+	input {
+		border: 1px solid black;
+	}
+
 	.cart-icon {
 		border: 1px solid black;
 	}
 	.logo {
-		border-right: 2px solid black;
+		@apply lg:border-r-2 lg:border-r-gray-800;
 	}
 	.skew {
 		@apply -skew-x-12;
-	}
-	.menu-icon {
-		color: black;
 	}
 }
 
@@ -34,15 +35,18 @@
 	::placeholder {
 		color: black;
 	}
+	input {
+		border: 1px solid black;
+	}
 
-	input,
 	.cart-icon {
 		border: 1px solid black;
 	}
 	.logo {
-		border-right: 2px solid black;
+		@apply lg:border-r-2 lg:border-r-gray-800;
 	}
 	.skew {
 		@apply -skew-x-12;
 	}
 }
+
