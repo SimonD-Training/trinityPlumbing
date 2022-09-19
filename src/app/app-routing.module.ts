@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component'
 import { NgModule } from '@angular/core'
 import { Router, RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from './guards/auth.guard'
+import { NavService } from './services/nav.service'
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
 		path: 'admins',
 		loadChildren: () =>
 			import('./pages/admin/admin.module').then((m) => m.AdminModule),
-			canActivate: [AuthGuard]
+		canActivate: [AuthGuard],
 	},
 	{ path: '**', redirectTo: 'home' },
 ]
@@ -31,8 +32,9 @@ const routes: Routes = [
 	exports: [RouterModule],
 })
 export class AppRoutingModule {
-	constructor(router: Router) {
-		router.events.subscribe(() => {
+	constructor(router: Router, private nService: NavService) {
+		router.events.subscribe((resp) => {
+			nService.region = 'user'
 			window.scrollTo(0, 0)
 		})
 	}

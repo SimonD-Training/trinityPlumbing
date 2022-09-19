@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { FormsModule } from '@angular/forms'
 import { AdminModule } from './pages/admin/admin.module'
 import { HttpClientModule } from '@angular/common/http'
+import { AdminheadComponent } from './components/adminhead/adminhead.component'
 
 @NgModule({
 	declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http'
 		SignupComponent,
 		HeaderComponent,
 		FooterComponent,
+		AdminheadComponent,
 	],
 	imports: [
 		BrowserModule,
