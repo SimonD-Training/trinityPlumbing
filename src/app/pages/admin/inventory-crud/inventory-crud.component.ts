@@ -28,6 +28,7 @@ export class InventoryCrudComponent implements OnInit {
 	ngOnInit(): void {}
 
 	createItem(payload: IProduct) {
+		console.log(payload)
 		this.iService.add(payload).subscribe({
 			next: (data) => {
 				this.Items.push(data)
