@@ -41,6 +41,14 @@
 					[(ngModel)]="item.imageUrl" />
 			</td>
 			<td>
+				<input
+					[readonly]="listArray[i].toggle"
+					class="flex-grow-1"
+					type="number"
+					style="border-style: none"
+					[(ngModel)]="item.stock" />
+			</td>
+			<td>
 				$
 				<input
 					[readonly]="listArray[i].toggle"
@@ -48,14 +56,6 @@
 					type="number"
 					style="border-style: none"
 					[(ngModel)]="item.price" />
-			</td>
-			<td>
-				<input
-					[readonly]="listArray[i].toggle"
-					class="flex-grow-1"
-					type="number"
-					style="border-style: none"
-					[(ngModel)]="item.stock" />
 			</td>
 			<td class="d-flex justify-content-between">
 				<i
@@ -106,6 +106,14 @@
 					[(ngModel)]="newItem.imageUrl" />
 			</td>
 			<td>
+				<input
+					class="flex-grow-1"
+					type="number"
+					style="border-style: none"
+					placeholder="+"
+					[(ngModel)]="newItem.stock" />
+			</td>
+			<td>
 				$
 				<input
 					class="flex-grow-1"
@@ -113,14 +121,6 @@
 					style="border-style: none"
 					placeholder="+"
 					[(ngModel)]="newItem.price" />
-			</td>
-			<td>
-				<input
-					class="flex-grow-1"
-					type="number"
-					style="border-style: none"
-					placeholder="+"
-					[(ngModel)]="newItem.stock" />
 			</td>
 			<td style="text-align: center">
 				<i
