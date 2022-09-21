@@ -6,14 +6,25 @@
 				<button mat-icon-button [matMenuTriggerFor]="beforeMenu">
 					<mat-icon class="text-white menu-icon">menu</mat-icon>
 					<mat-menu #beforeMenu="matMenu" xPosition="after">
-						<button mat-menu-item routerLink="home">HOME</button>
-						<button mat-menu-item routerLink="products">PRODUCTS</button>
-						<button mat-menu-item routerLink="services">SERVICES</button>
-						<button mat-menu-item routerLink="contact">CONTACT</button>
+						<button mat-menu-item routerLink="home">Home</button>
+						<button mat-menu-item [matMenuTriggerFor]="products">
+							Products
+						</button>
+						<button mat-menu-item routerLink="services">Services</button>
+						<button mat-menu-item routerLink="contact">Contact</button>
+					</mat-menu>
+
+					<mat-menu #products>
+						<button mat-menu-item routerLink="products">Toilets</button>
+						<button mat-menu-item routerLink="products">Baths</button>
+						<button mat-menu-item routerLink="products">Faucets</button>
+						<button mat-menu-item routerLink="products">Showers</button>
 					</mat-menu>
 				</button>
 			</div>
-			<a routerLink="home" class="flex justify-center items-center">
+			<a
+				routerLink="home"
+				class="flex justify-center items-center border-r-0 lg:border-r-2 lg:border-white logo">
 				<h1 class="font-bold text-2xl lg:text-3xl">TRINITY</h1>
 			</a>
 			<div
@@ -28,8 +39,8 @@
 			</div>
 		</div>
 		<div class="col-span-5 grid-rows-2">
-			<div class="grid grid-cols-3 py-3">
-				<div class="w-1/2 justify-self-end col-span-2 hidden lg:block">
+			<div class="lg:grid grid-cols-3 py-3 hidden">
+				<div class="w-1/3 ml-5 col-span-2">
 					<form>
 						<label class="relative block">
 							<input
@@ -53,7 +64,7 @@
 						routerLink="login"
 						class="h-full flex items-center justify-center">
 						<span
-							class="border rounded-full w-8 h-8 flex items-center justify-center border-white p-1 cart-icon">
+							class="border w-8 h-8 flex items-center justify-center border-white p-1 cart-icon rounded-full">
 							<i class="fa-solid fa-user"></i>
 						</span>
 						&nbsp; Login
@@ -62,7 +73,7 @@
 						routerLink="cart"
 						class="h-full flex items-center justify-center">
 						<span
-							class="border rounded-full w-8 h-8 flex items-center justify-center border-white p-1 cart-icon">
+							class="border w-8 h-8 flex items-center justify-center border-white p-1 cart-icon rounded-full">
 							<i class="fa-solid fa-cart-shopping"></i>
 						</span>
 						&nbsp; Cart
@@ -71,7 +82,7 @@
 			</div>
 			<nav>
 				<ul
-					class="hidden md:flex gap-10 w-11/12 mx-auto lg:w-3/4 items-center justify-around px-3 bg-gray-800 text-white relative h-10 lg:ml-5">
+					class="hidden md:flex w-11/12 lg:w-3/5 items-center justify-around px-3 bg-gray-800 text-white relative h-10 lg:ml-5 md:mt-5 lg:mt-0 md:mx-auto">
 					<li>
 						<a href="">Home</a>
 					</li>

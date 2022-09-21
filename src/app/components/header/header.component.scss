@@ -1,24 +1,25 @@
 .transition {
 	background: #ffffff !important;
 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-	color: black;
+	color: black !important;
 
-	::placeholder {
-		color: black;
+	::placeholder,
+	.menu-icon {
+		color: black !important;
 	}
 
-	input,
+	input {
+		border: 1px solid black !important;
+	}
+
 	.cart-icon {
-		border: 1px solid black;
+		border: 1px solid black !important;
 	}
 	.logo {
-		border-right: 2px solid black;
+		@apply lg:border-r-2 lg:border-r-gray-800;
 	}
 	.skew {
 		@apply -skew-x-12;
-	}
-	.menu-icon {
-		color: black;
 	}
 }
 
@@ -26,21 +27,26 @@
 	background: white;
 	display: block;
 	position: relative;
+	color: black !important;
+
 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-	color: black;
+
 	.menu-icon {
-		color: black;
+		color: black !important;
 	}
 	::placeholder {
 		color: black;
 	}
+	input {
+		border: 1px solid black !important;
+	}
 
-	input,
 	.cart-icon {
-		border: 1px solid black;
+		border: 1px solid black !important;
+		color: black !important;
 	}
 	.logo {
-		border-right: 2px solid black;
+		@apply lg:border-r-2 lg:border-r-gray-800 text-black;
 	}
 	.skew {
 		@apply -skew-x-12;
