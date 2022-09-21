@@ -80,6 +80,7 @@ export class ServicesService {
 			this.http
 				.patch<JSONResponse<IService>>(
 					environment.apiUrl + `/services/${id}`,
+					payload,
 					{
 						withCredentials: true,
 					}
