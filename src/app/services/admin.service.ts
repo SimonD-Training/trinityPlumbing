@@ -20,13 +20,9 @@ export class AdminService {
 	signIn(admin: Partial<IAdmin>) {
 		let obs = new Observable<IAdmin>((observer) => {
 			this.http
-				.post<JSONResponse<IAdmin>>(
-					environment.apiUrl + '/admins/login',
-					admin,
-					{
-						withCredentials: true,
-					}
-				)
+				.post<JSONResponse<IAdmin>>(environment.apiUrl + '/admins', admin, {
+					withCredentials: true,
+				})
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})

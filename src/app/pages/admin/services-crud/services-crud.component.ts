@@ -9,7 +9,7 @@ import { ServicesService } from 'src/app/services/services.service'
 })
 export class ServicesCrudComponent implements OnInit {
 	Services: IService[] = []
-	newService: any
+	newService: IService = <IService>{}
 	listArray: { class: string; toggle: boolean }[] = []
 	constructor(private sService: ServicesService) {}
 
@@ -26,7 +26,8 @@ export class ServicesCrudComponent implements OnInit {
 		this.sService.add(payload).subscribe({
 			next: (data) => {
 				this.Services.push(data)
-				this.newService = {}
+				this.newService = <IService>{}
+				this.listArray.push({ class: 'fa fa-pencil', toggle: true })
 			},
 			error: (err) => {
 				alert(err.message)

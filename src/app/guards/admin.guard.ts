@@ -7,13 +7,14 @@ import {
 	UrlTree,
 } from '@angular/router'
 import { Observable, take } from 'rxjs'
+import { AdminService } from '../services/admin.service'
 import { UserService } from '../services/user.service'
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AdminGuard implements CanActivate {
-	constructor(private aService: UserService, private router: Router) {}
+	constructor(private aService: AdminService, private router: Router) {}
 
 	canActivate(
 		route: ActivatedRouteSnapshot,

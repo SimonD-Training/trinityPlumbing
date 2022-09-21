@@ -12,7 +12,18 @@ import { IProduct } from '../interfaces/product.interface'
 export class InventoryService {
 	constructor(private http: HttpClient) {}
 
-	public get categories(): Observable<{ name: string }[]> {
+	public get inventory(): Observable<IProduct[]> {
+		return new Observable<IProduct[]>((observer) => {
+			this.http
+				.get<JSONResponse<IProduct[]>>(environment.apiUrl + '/items', {
+					withCredentials: true,
+				})
+				.pipe(take(1))
+				.subscribe(GenericSubscribe(observer))
+		})
+	}
+
+	public get categories(): Observable<{ _id: string; name: string }[]> {
 		return new Observable((observer) => {
 			this.http
 				.get<JSONResponse<{ name: string }[]>>(
@@ -64,23 +75,6 @@ export class InventoryService {
 	}
 
 	/**
-	 * Http request to get payment methods
-	 * @returns Observable
-	 */
-	getAll() {
-		let obs = new Observable<IProduct[]>((observer) => {
-			this.http
-				.get<JSONResponse<IProduct[]>>(environment.apiUrl + '/items', {
-					withCredentials: true,
-				})
-				.pipe(take(1))
-				.subscribe(GenericSubscribe(observer))
-		})
-
-		return obs
-	}
-
-	/**
 	 * Http request to update an item
 	 * @returns Observable
 	 */
@@ -111,6 +105,68 @@ export class InventoryService {
 				.delete<JSONResponse<any>>(environment.apiUrl + `/items/${id}`, {
 					withCredentials: true,
 				})
+				.pipe(take(1))
+				.subscribe(GenericSubscribe(observer))
+		})
+
+		return obs
+	}
+
+	/**
+	 * Http request to add a category
+	 * @param category New item information
+	 * @returns Observable
+	 */
+	addCat(category: { name: string }) {
+		let obs = new Observable<{ _id: string; name: string }>((observer) => {
+			this.http
+				.post<JSONResponse<{ _id: string; name: string }>>(
+					environment.apiUrl + '/categories',
+					category,
+					{
+						withCredentials: true,
+					}
+				)
+				.pipe(take(1))
+				.subscribe(GenericSubscribe(observer))
+		})
+		return obs
+	}
+
+	/**
+	 * Http request to update a category
+	 * @returns Observable
+	 */
+	updateCat(id: string, payload: Partial<{ _id: string; name: string }>) {
+		let obs = new Observable<{ _id: string; name: string }>((observer) => {
+			this.http
+				.patch<JSONResponse<{ _id: string; name: string }>>(
+					environment.apiUrl + `/categories/${id}`,
+					payload,
+					{
+						withCredentials: true,
+					}
+				)
+				.pipe(take(1))
+				.subscribe(GenericSubscribe(observer))
+		})
+
+		return obs
+	}
+
+	/**
+	 * Http request to delete category
+	 * @returns Observable
+	 */
+	deleteCat(id: string) {
+		let obs = new Observable((observer) => {
+			this.http
+				.delete<JSONResponse<null>>(
+					environment.apiUrl + `/categories/${id}`,
+					{
+						withCredentials: true,
+					}
+				)
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})

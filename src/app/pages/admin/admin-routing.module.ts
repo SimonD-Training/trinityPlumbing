@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core'
-import {
-	Event,
-	Router,
-	RouterEvent,
-	RouterModule,
-	Routes,
-} from '@angular/router'
+import { Router, RouterModule, Routes } from '@angular/router'
 import { NavService } from 'src/app/services/nav.service'
-import { ServicesComponent } from '../services/services.component'
 import { InventoryCrudComponent } from './inventory-crud/inventory-crud.component'
+import { ServicesCrudComponent } from './services-crud/services-crud.component'
 
 const routes: Routes = [
 	{ path: 'inventory', component: InventoryCrudComponent },
-	{ path: 'services', component: ServicesComponent },
-	{ path: '**', redirectTo: '../inventory' },
+	{ path: 'services', component: ServicesCrudComponent },
+	{ path: '**', redirectTo: 'inventory' },
 ]
 
 @NgModule({
@@ -23,7 +17,7 @@ const routes: Routes = [
 export class AdminRoutingModule {
 	constructor(router: Router, private nService: NavService) {
 		router.events.subscribe((resp: any) => {
-			if (/\/admins\//.test(resp.url)) nService.region = 'admin'
+			if (/admins\//.test(resp.url)) nService.region = 'admin'
 			window.scrollTo(0, 0)
 		})
 	}

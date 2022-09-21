@@ -17,7 +17,7 @@ export let GenericSubscribe = (
 			console.error(err.error)
 			observer.error(err.error)
 			observer.complete()
-			if (failure) failure(err.error.error)
+			if (failure) failure(err.error)
 		},
 	}
 }

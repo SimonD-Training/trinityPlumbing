@@ -3,8 +3,8 @@
 		<tr>
 			<th>Service Name</th>
 			<th>ImageUrl</th>
-			<th>Description</th>
 			<th>Price</th>
+			<th>Description</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -68,7 +68,8 @@
 					type="text"
 					style="border-style: none"
 					placeholder="New Service"
-					[(ngModel)]="newService.name" />
+					[(ngModel)]="newService.name"
+					required />
 			</td>
 			<td>
 				<input
@@ -76,7 +77,8 @@
 					type="text"
 					style="border-style: none"
 					placeholder="New Image Url"
-					[(ngModel)]="newService.imageUrl" />
+					[(ngModel)]="newService.imageUrl"
+					required />
 			</td>
 			<td>
 				$
@@ -85,7 +87,8 @@
 					type="number"
 					style="border-style: none"
 					placeholder="+"
-					[(ngModel)]="newService.price" />
+					[(ngModel)]="newService.price"
+					required />
 			</td>
 			<td>
 				<input
@@ -93,7 +96,8 @@
 					type="text"
 					style="border-style: none"
 					placeholder="New Description"
-					[(ngModel)]="newService.description" />
+					[(ngModel)]="newService.description"
+					required />
 			</td>
 			<td style="text-align: center">
 				<i

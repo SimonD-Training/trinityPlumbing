@@ -7,8 +7,9 @@ import { CartComponent } from './pages/users/cart/cart.component'
 import { HomeComponent } from './pages/home/home.component'
 import { NgModule } from '@angular/core'
 import { Router, RouterModule, Routes } from '@angular/router'
-import { AuthGuard } from './guards/auth.guard'
 import { NavService } from './services/nav.service'
+import { VerifyComponent } from './pages/admin/verify/verify.component'
+import { AdminGuard } from './guards/admin.guard'
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
@@ -22,8 +23,9 @@ const routes: Routes = [
 		path: 'admins',
 		loadChildren: () =>
 			import('./pages/admin/admin.module').then((m) => m.AdminModule),
-		canActivate: [AuthGuard],
+		canActivate: [AdminGuard],
 	},
+	{ path: 'xyz', component: VerifyComponent },
 	{ path: '**', redirectTo: 'home' },
 ]
 
