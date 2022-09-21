@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms'
 import { AdminModule } from './pages/admin/admin.module'
 import { HttpClientModule } from '@angular/common/http'
 import { AdminheadComponent } from './components/adminhead/adminhead.component'
+import { VerifyComponent } from './pages/admin/verify/verify.component'
 
 @NgModule({
 	declarations: [
@@ -28,6 +29,7 @@ import { AdminheadComponent } from './components/adminhead/adminhead.component'
 		HeaderComponent,
 		FooterComponent,
 		AdminheadComponent,
+		VerifyComponent
 	],
 	imports: [
 		BrowserModule,

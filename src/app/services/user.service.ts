@@ -26,9 +26,13 @@ export class UserService {
 				else data.set(e, user[e as keyof IUser] as string)
 			})
 			this.http
-				.post<JSONResponse<IUser>>(environment.apiUrl + '/users', data, {
-					withCredentials: true,
-				})
+				.post<JSONResponse<IUser>>(
+					environment.apiUrl + '/users/register',
+					data,
+					{
+						withCredentials: true,
+					}
+				)
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})
@@ -53,22 +57,6 @@ export class UserService {
 	}
 
 	/**
-	 * Http request to logout
-	 * @returns Observable
-	 */
-	deleteUser() {
-		let obs = new Observable<IUser>((observer) => {
-			this.http
-				.delete<JSONResponse<IUser>>(environment.apiUrl + '/users', {
-					withCredentials: true,
-				})
-				.pipe(take(1))
-				.subscribe(GenericSubscribe(observer))
-		})
-		return obs
-	}
-
-	/**
 	 * Http request to sign into a user account
 	 * @param user Email and Password
 	 * @returns Observable
@@ -76,13 +64,9 @@ export class UserService {
 	signIn(user: Partial<IUser>) {
 		let obs = new Observable<IUser>((observer) => {
 			this.http
-				.post<JSONResponse<IUser>>(
-					environment.apiUrl + '/users/login',
-					user,
-					{
-						withCredentials: true,
-					}
-				)
+				.post<JSONResponse<IUser>>(environment.apiUrl + '/users', user, {
+					withCredentials: true,
+				})
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})
@@ -114,10 +98,9 @@ export class UserService {
 	signOut() {
 		let obs = new Observable((observer) => {
 			this.http
-				.get<JSONResponse<undefined>>(
-					environment.apiUrl + '/users/logout',
-					{ withCredentials: true }
-				)
+				.delete<JSONResponse<undefined>>(environment.apiUrl + '/users', {
+					withCredentials: true,
+				})
 				.pipe(take(1))
 				.subscribe(GenericSubscribe(observer))
 		})
